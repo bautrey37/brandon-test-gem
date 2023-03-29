@@ -3,20 +3,21 @@ name: Publish Gem
 on:
   push:
     branches:
-      - "*"
-    tags:
-      - v*
+      - master
+
 jobs:
-  build:
+  publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
       - name: Release Gem
-        if: contains(github.ref, 'refs/tags/v')
-        uses: cadwallion/publish-rubygems-action@master
+        uses: discourse/publish-rubygems-action@v2
         env:
-          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
-          RUBYGEMS_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
+          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
           RELEASE_COMMAND: rake release
+          GIT_EMAIL: brandon.autrey@glia.com
+          GIT_NAME: Publisher
