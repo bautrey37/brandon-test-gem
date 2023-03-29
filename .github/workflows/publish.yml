@@ -17,6 +17,3 @@ jobs:
         uses: discourse/publish-rubygems-action@v2
         env:
           RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
-          RELEASE_COMMAND: rake release
-          GIT_EMAIL: brandon.c.autrey@gmail.com
-          GIT_NAME: Publisher
