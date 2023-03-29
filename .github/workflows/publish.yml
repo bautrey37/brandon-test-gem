@@ -18,5 +18,5 @@ jobs:
         env:
           RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
           RELEASE_COMMAND: rake release
-          GIT_EMAIL: brandon.autrey@glia.com
+          GIT_EMAIL: brandon.c.autrey@gmail.com
           GIT_NAME: Publisher
