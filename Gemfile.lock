@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    brandon-test-gem (0.1.0)
+    brandon-test-gem (0.1.1)
 
 GEM
   remote: https://rubygems.org/
